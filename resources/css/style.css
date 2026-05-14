@@ -1,0 +1,29 @@
+:root {
+    --maroon-dark: #4A071D;
+    --maroon-light: #7A0C2E;
+    --cream: #FDF5E6;
+    --brown-accent: #A98467;
+}
+
+body { font-family: 'Poppins', sans-serif; background-color: var(--cream); color: var(--maroon-light); }
+
+/* --- AUTH & RESET PASS --- */
+.auth-container { background-color: var(--brown-accent); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.auth-card { background: var(--cream); border-radius: 40px; padding: 40px; width: 100%; max-width: 450px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); border-t: 12px solid var(--maroon-dark); }
+.input-custom { background-color: #EBF2FF; border: 1px solid #D1E3FF; border-radius: 15px; padding: 15px; width: 100%; outline: none; }
+.btn-primary { background-color: var(--maroon-dark); color: white; border-radius: 50px; width: 100%; padding: 15px; font-weight: bold; transition: 0.3s; }
+.btn-primary:hover { background-color: #360515; transform: scale(1.02); }
+.approval-box { background-color: #FFFBEB; border: 1px solid #FEF3C7; border-radius: 20px; padding: 20px; margin-bottom: 20px; text-align: center; font-size: 13px; }
+
+/* --- USER DASHBOARD --- */
+.cat-pill { border: 1.5px solid var(--maroon-light); border-radius: 50px; padding: 8px 20px; color: var(--maroon-light); font-weight: 600; white-space: nowrap; transition: 0.3s; }
+.cat-pill.active { background-color: var(--maroon-light); color: white; }
+.recipe-card { background-color: #E2E2B6; border-radius: 25px; padding: 15px; transition: 0.3s; height: 100%; display: flex; flex-direction: column; }
+.recipe-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.recipe-img-container { width: 100%; height: 200px; border-radius: 20px; overflow: hidden; margin-bottom: 12px; }
+.recipe-img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- ADMIN LAYOUT --- */
+.sidebar { background-color: var(--maroon-light); color: white; min-height: 100vh; width: 250px; position: fixed; }
+.admin-content { margin-left: 250px; padding: 40px; }
+.stat-card { background-color: var(--maroon-dark); border-radius: 15px; padding: 20px; color: white; text-align: center; }

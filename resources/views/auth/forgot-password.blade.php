@@ -31,7 +31,7 @@
         .btn-maroon:hover { background: #7A0C2E; transform: translateY(-1px); }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen">
+<body class="flex items-center justify-center min-h-screen"> <!--flex=mngaktifkn flexbox, min-h-screen memaksa body utk memiliki tinggi minimal setinggi layar HP atau monitor si pengguna-->
     <div class="w-full max-w-md px-6">
         <div class="login-card p-10 shadow-2xl w-full border-t-8 border-[#4A071D]">
             <div class="text-center mb-6">
@@ -47,11 +47,11 @@
             @endif
 
             <!-- Form Reset -->
-            <form method="POST" action="{{ route('password.update') }}">
+            <form method="POST" action="{{ route('password.update') }}"> <!--action=... -> adlh tujuan/alamat kemna data form ini akan dikirim-->
                 @csrf
                 <div class="space-y-4">
                     <div>
-                        <input type="email" name="email" value="{{ old('email') }}" required class="input-custom" placeholder="Email Admin">
+                        <input type="email" name="email" value="{{ old('email') }}" required class="input-custom" placeholder="Email Admin"> <!--old()=email yg uda diktik tdk akn trhps, class="input-custom"=mnghbungkn elemen kedesain CSS yg dibuat-->
                         @error('email') <p class="text-red-500 text-[10px] mt-1">{{ $message }}</p> @enderror
                     </div>
                     
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <!-- Teks Persetujuan Sesuai Request -->
+                <!--meminta persetujuan ke superadmin-->
                 <div class="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl">
                     <p class="text-[11px] text-amber-800 leading-relaxed text-center">
                         <strong>Sistem Approval:</strong> Setelah klik tombol di bawah, permintaan Anda akan dikirim ke <strong>Superadmin</strong>. Sandi Anda baru akan berubah setelah disetujui di Dashboard Superadmin.

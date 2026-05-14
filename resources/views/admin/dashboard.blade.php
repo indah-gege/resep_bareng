@@ -52,7 +52,7 @@
 @endpush
 
 @section('content')
-<div class="page-header">
+<div class="page-header">   
     <div>
         <h2>Dashboard</h2>
         <p>Ringkasan konten resep</p>

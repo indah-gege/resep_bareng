@@ -26,7 +26,7 @@
         }
         .recipe-img {
             width: 100%;
-            height: 220px; 
+            height: 150px; 
             object-fit: cover;
             border-radius: 20px;
         }
@@ -51,9 +51,8 @@
         <div class="container mx-auto flex items-center justify-between">
             
             <div class="flex flex-col items-center shrink-0">
-                <img src="{{ asset('logo.png') }}" style="width: 100px; height: 100px;" class="object-contain" alt="Logo"> 
+                <img src="{{ asset('logo.png') }}" style="width: 140px; height: 140px;" class="object-contain" alt="Logo"> 
                 <h1 class="text-maroon font-bold text-lg leading-none -mt-2">
-                    resep<span class="text-orange-500">bareng</span>
                 </h1>
             </div>
 
@@ -75,7 +74,7 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-10 pb-20 mt-8">
+    <main class="container mx-auto px-10 pb-20 mt-2">
         @if(!$kategoriId)
         <div class="bg-banner p-10 flex justify-between items-center relative mb-12 overflow-hidden rounded-[35px]">
             <div class="max-w-xl z-10">
@@ -106,10 +105,10 @@
                     {{ $k->nama }}
                 </a>
             @endforeach
-            <button class="text-maroon text-xs font-bold ml-2">Selengkapnya...</button>
+            <button class="text-maroon text-sm font-bold ml-2">Selengkapnya...</button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             @forelse($reseps as $r)
             <div class="h-full">
                 <a href="{{ route('user.resep.detail', $r->id) }}" class="card-recipe p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">

@@ -57,7 +57,6 @@
 <div class="top-bar">
     <a href="{{ route('admin.resep.index') }}" class="btn-back">← Kembali</a>
     <span class="edit-title">Tambah resep baru</span>
-    <span class="edit-date">Terakhir diubah: {{ now()->format('d M Y') }}</span>
 </div>
 
 <form method="POST" action="{{ route('admin.resep.simpan') }}" enctype="multipart/form-data">

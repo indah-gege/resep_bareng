@@ -21,8 +21,8 @@
             outline: none;
             box-shadow: 0 0 0 3px rgba(122, 12, 46, 0.1);
         }
-        .input-custom::placeholder { color: #4A071D; opacity: 0.5; }
-        .btn-round { 
+        .input-custom::placeholder { color: #4A071D; opacity: 0.5; } /*teks bantuan, misal tulisan "Masukkan Email..."*/    
+        .btn-round { /*class utk membuat button yg bentukny lonjong/bulat di ujungnya*/
             background-color: #4A071D;
             color: #FDF5E6;
             border-radius: 50px; 
@@ -47,16 +47,15 @@
                 <p class="text-[11px] text-gray-500 mt-1">Selamat Datang Kembali! Silahkan Login sebagai Admin</p>
             </div>
             
-            <form method="POST" action="{{ route('login.admin.post') }}" autocomplete="off">
+            <form method="POST" action="{{ route('login.admin.post') }}" autocomplete="off"> <!--Mnentukn data login akan dikirim ke fungsi loginAdmin di Controller melalui metode POST-->
                 @csrf
-                {{-- INPUT EMAIL - ICON SUDAH DIHAPUS --}}
+               
                 <div class="mb-4">
                     <input type="email" name="email" value="{{ old('email') }}" required 
                            class="input-custom w-full p-3 text-sm outline-none" 
                            placeholder="Masukkan Username/Email">
                 </div>
 
-                {{-- INPUT PASSWORD - ICON MATA SUDAH DIHAPUS --}}
                 <div class="mb-4">
                     <input type="password" id="pass-admin" name="password" required 
                            class="input-custom w-full p-3 text-sm outline-none" 
@@ -78,7 +77,6 @@
         </div>
     </div>
 
-    {{-- Script toggle tetap dibiarkan kalau sewaktu-waktu mau pakai icon lagi --}}
     <script>
         function togglePass(inputId) {
             const p = document.getElementById(inputId);

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function showUserLogin() { return view('auth.login'); }
-    public function showAdminLogin() { return view('auth.login-admin'); }
+    public function showAdminLogin() { return view('auth.login-admin'); } //Mnampilkn hlmn login admin
 
     public function loginUser(Request $request)
     {
@@ -26,8 +26,8 @@ class LoginController extends Controller
 
     public function loginAdmin(Request $request)
     {
-        $request->validate(['email' => 'required', 'password' => 'required']);
-        if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+        $request->validate(['email' => 'required', 'password' => 'required']); //required=wajib diisi
+        if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) { //Auth::attemp:Mncoba mnccokkn email&pw ke db
             $user = Auth::user();
             if ($user->role !== 'admin' && $user->role !== 'superadmin') {
                 Auth::logout();
@@ -49,7 +49,6 @@ class LoginController extends Controller
 
     public function showForgotForm() { return view('auth.forgot-password'); }
 
-    // Fungsi Admin Kirim Permintaan Reset
     public function updatePassword(Request $request)
     {
         $request->validate([
@@ -60,7 +59,6 @@ class LoginController extends Controller
             'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.'
         ]);
 
-        // Simpan ke antrean (Bukan langsung ganti password User)
         AdminResetRequest::create([
             'email' => $request->email,
             'password_baru' => Hash::make($request->password),
@@ -70,23 +68,19 @@ class LoginController extends Controller
         return back()->with('status', 'Permintaan terkirim! Silakan hubungi Superadmin untuk persetujuan.');
     }
 
-    // Fungsi Superadmin Setujui
     public function approveReset($id)
     {
         $req = AdminResetRequest::findOrFail($id);
         
-        // Update Password User Asli
         User::where('email', $req->email)->update([
             'password' => $req->password_baru
         ]);
 
-        // Update status antrean
         $req->update(['status' => 'disetujui']);
 
         return back()->with('success', 'Sandi admin berhasil diperbarui!');
     }
 
-    // Fungsi Superadmin Tolak
     public function rejectReset($id)
     {
         AdminResetRequest::findOrFail($id)->update(['status' => 'ditolak']);

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
-    // AKU TAMBAHKAN HasFactory DI SINI BIAR SEEDER JALAN
     use Notifiable, HasFactory;
 
     protected $fillable = ['name', 'email', 'password', 'role'];
